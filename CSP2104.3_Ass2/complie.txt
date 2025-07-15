@@ -1,0 +1,3 @@
+g++ main.cpp Word.cpp Dictionary.cpp Dictionary_copy.cpp  dec2hex.cpp -o dic
+
+cd /Users/mirhossein/Documents/C++/CSP2104.3_Ass3/CSP2104.3_Ass2 
