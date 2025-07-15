@@ -3,7 +3,7 @@
 //  CSP2104.3_Ass2
 //
 //  Created by Mirhossein Jalali Moghadam on 22/7/2024.
-//
+// Safety Critical File
 
 #ifndef Dictionary_copy_hpp
 #define Dictionary_copy_hpp
