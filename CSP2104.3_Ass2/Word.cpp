@@ -3,7 +3,7 @@
 //  Word Class
 //
 //  Created by Mirhossein Jalali Moghadam on 14/4/2024.
-//
+//  non-safety critical
 #include "Word.hpp"
 #include<iostream>
 using namespace std;

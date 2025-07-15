@@ -3,7 +3,7 @@
 //  CSP2104.3_Ass2
 //
 //  Created by Mirhossein Jalali Moghadam on 22/7/2024.
-//
+//  safety critical part
 
 #include "Dictionary_copy.hpp"
 #include<iostream>

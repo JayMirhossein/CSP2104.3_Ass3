@@ -1,10 +1,19 @@
+//
+//  dec2hex.cpp
+//  CSP2104.3_Ass2
+//
+//  Created by Mirhossein Jalali Moghadam on 15/07/2025
+//  non-safety critical part
+// Function to convert a decimal number to hexadecimal
+
+
 #include <iostream>
 #include <string>
 #include <algorithm> // Required for std::reverse
 
 using namespace std;
 
-// Function to convert a decimal number to hexadecimal
+
 string decToHex(int decimalNum) {
     if (decimalNum == 0) {
         return "0"; // Handle the special case of 0

@@ -3,7 +3,7 @@
 //  Dictionary Class
 //
 //  Created by Mirhossein(Jay) ZIABARI on 26/4/2024.
-//
+//  safety critical file
 
 #include "Dictionary.hpp"
 #include <iostream>
