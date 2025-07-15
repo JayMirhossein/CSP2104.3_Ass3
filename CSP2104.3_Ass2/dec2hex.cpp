@@ -6,13 +6,11 @@
 //  non-safety critical part
 // Function to convert a decimal number to hexadecimal
 
-
 #include <iostream>
 #include <string>
 #include <algorithm> // Required for std::reverse
 
 using namespace std;
-
 
 string decToHex(int decimalNum) {
     if (decimalNum == 0) {
@@ -32,7 +30,6 @@ string decToHex(int decimalNum) {
         hexString += hexChar;
         decimalNum /= 16;
     }
-
     reverse(hexString.begin(), hexString.end()); // Reverse the string as remainders are collected in reverse order
     return hexString;
 }
