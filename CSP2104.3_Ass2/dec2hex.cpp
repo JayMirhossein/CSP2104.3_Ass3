@@ -4,7 +4,7 @@
 //
 //  Created by Mirhossein Jalali Moghadam on 15/07/2025
 //  non-safety critical part
-// Function to convert a decimal number to hexadecimal
+//  Function to convert a decimal number to hexadecimal
 
 #include <iostream>
 #include <string>
