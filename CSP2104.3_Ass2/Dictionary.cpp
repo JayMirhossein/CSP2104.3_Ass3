@@ -38,7 +38,6 @@ string Dictionary::LoadDictionary(string dictionary_path)
 {
     string result = dictionary_path +" file ok \n \n";
     myfile.open(dictionary_path.c_str(),ios::in);
-   // if(myfile.i)
     if(myfile) {
     // loading dictionary to the STL vector
         while (!myfile.eof())

@@ -27,7 +27,7 @@
 // Dictionary Mode user enters the word and get the type and definition
 // Game Mode Guess the fourth word – Your program should choose a random
 // word from the dictionary, one that has more than 4 words in its definition
-// Print Main Menu                             |
+// Print Main Menu                               |
 
 #include<iostream>
 #include <string>
@@ -83,8 +83,9 @@ int main()
     file_status = NewDictionary2.LoadDictionary(filename_copy);
     cout << file_status;
     
-    cout << "/checking the dictionary files....";
-    int  dictionary_compare_res = NewDictionary.CompareDictionary_A(filename, filename_copy);
+   // cout << "/checking the dictionary files....";
+  //  int  dictionary_compare_res = NewDictionary.CompareDictionary_A(filename, filename_copy);
+    int dictionary_compare_res = NewDictionary2.CompareDictionary_B(filename, filename_copy);
     
     // clasculating CRC8 value for Dictionary 1
     cout << "/Calculating CRC8 for Dic1 and Dic 2... " << "\n \n";

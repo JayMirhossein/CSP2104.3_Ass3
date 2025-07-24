@@ -74,20 +74,45 @@ void Dictionary_copy::AmendDictionary(string dictionary_path, string _Type, stri
 
 int Dictionary_copy::CompareDictionary_B(string  dictionary_path1, string dictionary_path2)
 {
-    char c1=0, c2=0;
+    char char1=0, char2=0;
     int result = 0;
     fstream file1,file2;
     file1.open(dictionary_path1,ios::in);
     file2.open(dictionary_path2,ios::in);
     
-    while(((c1!=EOF)||(c2!=EOF))){
-        c1=file1.get();
-        c2=file2.get();
-        if(c1!=c2){
-            result++;
-            break;
+    // Compare file sizes first
+      file1.seekg(0, std::ios::end);
+      file2.seekg(0, std::ios::end);
+      if (file1.tellg() != file2.tellg()) {
+          cout << "Files have different sizes." << std::endl;
+          file1.close();
+          file2.close();
+          result = 1;
+      }
+    // Reset file pointers to the beginning
+    file1.seekg(0, std::ios::beg);
+    file2.seekg(0, std::ios::beg);
+    
+    while (file1.get(char1) && file2.get(char2)) {
+        if (char1 != char2) {
+            cout << "Files are different." << endl;
+            file1.close();
+            file2.close();
+            result = 1;
         }
-        
+    }
+
+    // Check for end-of-file conditions
+    if (file1.eof() && file2.eof()) {
+        cout << "Files are identical." << endl;
+        file1.close();
+        file2.close();
+        result = 0;
+    } else {
+        cerr << "Error: Unexpected end-of-file condition." << endl;
+        file1.close();
+        file2.close();
+        result = 1;
     }
         return result;
     }
