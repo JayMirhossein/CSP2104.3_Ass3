@@ -49,9 +49,9 @@ using namespace std;
 
 int main()
 {
-    string scorefile = "/Users/mirhossein/Documents/C++/CSP2104_Ass1/game_score.txt";
-    string filename = "/Users/mirhossein/Documents/C++/CSP2104_Ass1/dictionary_2024S1.txt";
-    string filename_copy = "/Users/mirhossein/Documents/C++/CSP2104.3_Ass2/dictionary_2024S1 copy.txt";
+    string scorefile = "/Users/mirhossein/Documents/Dictionary1/game_score.txtt";
+    string filename = "/Users/mirhossein/Documents/Dictionary1/dictionary_2024S1.txt";
+    string filename_copy = "/Users/mirhossein/Documents/Dictionary2/dictionary_2024S1 copy.txt";
     string str="";
     string _Type;
     string _Definition;
