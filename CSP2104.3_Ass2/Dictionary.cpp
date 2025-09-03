@@ -157,7 +157,7 @@ void Dictionary::AmendDictionary(string dictionary_path, string _Type, string _D
         myfile << "Word: "+_Word+"\r" << endl;
         myfile << _empty_line << endl;
         myfile.close();
-        LoadDictionary(dictionary_path);
+       // LoadDictionary(dictionary_path);
         cout << "New word added successfully \n";}}
 
 void ImprovedDictonary::palindroms(string input_word) {

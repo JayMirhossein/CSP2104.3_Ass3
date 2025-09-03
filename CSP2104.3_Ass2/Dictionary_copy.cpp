@@ -69,7 +69,7 @@ void Dictionary_copy::AmendDictionary(string dictionary_path, string _Type, stri
         myfile << "Word: "+_Word+"\r" << endl;
         myfile << _empty_line << endl;
         myfile.close();
-        LoadDictionary(dictionary_path);
+        //LoadDictionary(dictionary_path);
         cout << "New word added successfully \n";}}
 
 int Dictionary_copy::CompareDictionary_B(string  dictionary_path1, string dictionary_path2)

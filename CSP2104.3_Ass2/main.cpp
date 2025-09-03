@@ -28,6 +28,7 @@
 // Game Mode Guess the fourth word – Your program should choose a random
 // word from the dictionary, one that has more than 4 words in its definition
 // Print Main Menu                               |
+// C __> calculate CRC8
 
 #include<iostream>
 #include <string>
@@ -49,7 +50,7 @@ using namespace std;
 
 int main()
 {
-    string scorefile = "/Users/mirhossein/Documents/Dictionary1/game_score.txtt";
+    string scorefile = "/Users/mirhossein/Documents/Dictionary1/game_score.txt";
     string filename = "/Users/mirhossein/Documents/Dictionary1/dictionary_2024S1.txt";
     string filename_copy = "/Users/mirhossein/Documents/Dictionary2/dictionary_2024S1 copy.txt";
     string str="";
@@ -75,7 +76,7 @@ int main()
     
     //cout << file_exist(filename);
    // cout << file_exist(filename_copy);
-    cout << "\033[" << 30 << "m" << "\n" ;
+    cout << "\033" << 30 << "m" << "\n" ;
     // load channel 1 dictionary file , if no file exists create new dictionary file
     file_status = NewDictionary.LoadDictionary(filename);
     cout << file_status;
@@ -102,7 +103,7 @@ int main()
     // printing the latest verison of Dictionary
     // the version of dictionary adds up everytime a new word is added successfully
     fstream History;
-    History.open ("/Users/mirhossein/Documents/C++/CSP2104_Ass1/dictionary_history.txt",ios::in);
+    History.open ("/Users/mirhossein/Documents/Dictionary1/dictionary_history.txt",ios::in);
     getline (History,Dictioary_Version);
     getline (History,Version_date_time);
     cout << "Dictionary version: " << Dictioary_Version<< endl;
@@ -151,7 +152,7 @@ int main()
                 cout << "/checking the dictionary files....";
                 dictionary_compare_res = NewDictionary.CompareDictionary_A(filename, filename_copy);
                 if (dictionary_compare_res > 0)
-                { cout << "dictionary comare fails\n";
+                { cout << "dictionary compare fails\n";
                     cout << "program exits \n";
                     break;}
                     
@@ -163,8 +164,7 @@ int main()
                 _Definition = NewWord.inputWord("New Word Definition");
                 _Word = NewWord.inputWord("New Word ");
                 result = 0;
-                
-                
+
                 for (auto& a : NewDictionary.v1)
                 {
                     if (_Word +"\r" == a.Word) result =1; }
@@ -181,10 +181,16 @@ int main()
                     NewDictionary.dictionary_version = stoi("0"+Dictioary_Version);
                     NewDictionary.dictionary_version = NewDictionary.dictionary_version+1;
                     Dictioary_Version = to_string(NewDictionary.dictionary_version);
-                    History.open ("/Users/mirhossein/Documents/C++/CSP2104_Ass1/dictionary_history.txt",ios::out);
+                    History.open ("/Users/mirhossein/Documents/dictionary_history.txt",ios::out);
                     History << Dictioary_Version <<endl;
                     History << dt << endl;
                     History.close();
+                    
+                    file_status = NewDictionary.LoadDictionary(filename);
+                    cout << file_status;
+                    // load channel 2 dictionary file , if no file exists create new dictionary file
+                    file_status = NewDictionary2.LoadDictionary(filename_copy);
+                    cout << file_status;
                 }
                 else
                     cout << "Error !, the word already exists\n";
