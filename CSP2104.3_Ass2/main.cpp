@@ -16,7 +16,6 @@
 //    should be overridden in the new class so
 //    as to allow the new and old functions to be selected):
 //
-//
 // Dictionary Progra supports the following tasks
 // Palindrome words :  List all words in the dictionary that are palindromes
 //. e.g .”civic”
@@ -28,7 +27,7 @@
 // Game Mode Guess the fourth word – Your program should choose a random
 // word from the dictionary, one that has more than 4 words in its definition
 // Print Main Menu                               |
-// C __> calculate CRC8
+// C --> calculate CRC8
 
 #include<iostream>
 #include <string>
@@ -48,6 +47,7 @@
 #include <future>
 using namespace std;
 
+
 int main()
 {
     string scorefile = "/Users/mirhossein/Documents/Dictionary1/game_score.txt";
@@ -65,6 +65,7 @@ int main()
     string rhyme;
     int result;
     // Define the interval in seconds
+    //chrono::seconds interval(1);
 
     // Vector of class objects, STL vector of the World Class
     Dictionary NewDictionary;
@@ -222,6 +223,9 @@ int main()
                 result = NewDictionary.CRCDictionary(filename_copy);
                 cout << "File 2 Dictionary CRC8 =  " << result  << "\n" ;
             }
+            
+            //this_thread::sleep_for(interval);
+            // cyclic task can be executed here
         }
         break;  // Exit the loop
     }
