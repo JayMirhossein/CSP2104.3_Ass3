@@ -28,7 +28,7 @@
 // Game Mode Guess the fourth word – Your program should choose a random
 // word from the dictionary, one that has more than 4 words in its definition
 // Print Main Menu                               |
-// C __> calculate CRC8
+// C --> calculate CRC8
 
 #include<iostream>
 #include <string>
