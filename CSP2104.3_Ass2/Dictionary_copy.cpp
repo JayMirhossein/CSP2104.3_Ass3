@@ -69,54 +69,40 @@ void Dictionary_copy::AmendDictionary(string dictionary_path, string _Type, stri
         myfile << "Word: "+_Word+"\r" << endl;
         myfile << _empty_line << endl;
         myfile.close();
-        //LoadDictionary(dictionary_path);
         cout << "New word added successfully \n";}}
 
 int Dictionary_copy::CompareDictionary_B(string  dictionary_path1, string dictionary_path2)
 {
-    char char1=0, char2=0;
     int result = 0;
+    string line1, line2;
+    int lineNum = 1;
+    bool areEqual = true;
     fstream file1,file2;
     file1.open(dictionary_path1,ios::in);
     file2.open(dictionary_path2,ios::in);
     
-    // Compare file sizes first
-      file1.seekg(0, std::ios::end);
-      file2.seekg(0, std::ios::end);
-      if (file1.tellg() != file2.tellg()) {
-          cout << "Files have different sizes." << std::endl;
-          file1.close();
-          file2.close();
-          result = 1;
-      }
-    // Reset file pointers to the beginning
-    file1.seekg(0, std::ios::beg);
-    file2.seekg(0, std::ios::beg);
-    
-    while (file1.get(char1) && file2.get(char2)) {
-        if (char1 != char2) {
-            cout << "Files are different." << endl;
-            file1.close();
-            file2.close();
-            result = 1;
+    while (getline(file1, line1) && getline(file2, line2)) {
+        if (line1 != line2) {
+            cout << "Difference at line " << lineNum << ":\n";
+            cout << "File1: " << line1 << "\n";
+            cout << "File2: " << line2 << "\n";
+            areEqual = false;
+            break;
         }
+        ++lineNum;
     }
 
-    // Check for end-of-file conditions
-    if (file1.eof() && file2.eof()) {
-        cout << "Files are identical." << endl;
-        file1.close();
-        file2.close();
-        result = 0;
-    } else {
-        cerr << "Error: Unexpected end-of-file condition." << endl;
-        file1.close();
-        file2.close();
+    if (areEqual && (getline(file1, line1) || getline(file2, line2))) {
+        std::cout << "Files differ in length.\n";
         result = 1;
     }
+    if (areEqual) {
+        cout << "Files are identical.\n";
+    }
+    file1.close();
+    file2.close();
         return result;
     }
-
 
 void ImprovedDictonary_copy::palindroms(string input_word) {
 

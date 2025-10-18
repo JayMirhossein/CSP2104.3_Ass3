@@ -45,6 +45,7 @@
 #include <chrono>
 #include <atomic>
 #include <future>
+#include <assert.h>
 using namespace std;
 
 
@@ -64,6 +65,10 @@ int main()
     string word_b;
     string rhyme;
     int result;
+    int dictionary_compare_res_1=0;
+    int dictionary_compare_res_2=0;
+    
+    
     // Define the interval in seconds
     //chrono::seconds interval(1);
 
@@ -75,6 +80,14 @@ int main()
     ImprovedDictonary_copy NewImprovedDictionary2 ;
     Word NewWord;
     
+    cout << "/checking the dictionary files.... check 1\n";
+    dictionary_compare_res_1 = NewDictionary.CompareDictionary_A(filename, filename_copy);
+    //assert(dictionary_compare_res_1 = 0);
+    cout << "/checking the dictionary files.... check 2\n";
+    dictionary_compare_res_2 = NewDictionary2.CompareDictionary_B(filename, filename_copy);
+    //assert(dictionary_compare_res_2=0);
+    
+    
     //cout << file_exist(filename);
    // cout << file_exist(filename_copy);
     cout << "\033" << 30 << "m" << "\n" ;
@@ -85,9 +98,7 @@ int main()
     file_status = NewDictionary2.LoadDictionary(filename_copy);
     cout << file_status;
     
-   // cout << "/checking the dictionary files....";
-  //  int  dictionary_compare_res = NewDictionary.CompareDictionary_A(filename, filename_copy);
-    int dictionary_compare_res = NewDictionary2.CompareDictionary_B(filename, filename_copy);
+
     
     // clasculating CRC8 value for Dictionary 1
     cout << "/Calculating CRC8 for Dic1 and Dic 2... " << "\n \n";
@@ -119,7 +130,7 @@ int main()
             // letter m prints the main menu
             if (str == "m")
             {NewDictionary.DictionaryMenu();}
-            
+     
             // letter 'r' sets the Rym mode
             if (str == "r")
             { cout << "Rhyme Mode\n";
@@ -151,8 +162,8 @@ int main()
             if (str == "a")
             {
                 cout << "/checking the dictionary files....";
-                dictionary_compare_res = NewDictionary.CompareDictionary_A(filename, filename_copy);
-                if (dictionary_compare_res > 0)
+                dictionary_compare_res_1 = NewDictionary.CompareDictionary_A(filename, filename_copy);
+                if (dictionary_compare_res_1 > 0)
                 { cout << "dictionary compare fails\n";
                     cout << "program exits \n";
                     break;}

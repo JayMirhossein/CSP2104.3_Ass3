@@ -62,12 +62,10 @@ string Dictionary::LoadDictionary(string dictionary_path)
 
 int Dictionary::CompareDictionary_A(string dictionary_path1, string dictionary_path2)
 {
-    
     //---------- compare number of lines in both files ------------------//
         int c1=0,c2=0;
         string str;
          int j=0;
-    
     ifstream dictionary_file1,dictionary_file2;
     dictionary_file1.open(dictionary_path1,ios::binary);
     dictionary_file2.open(dictionary_path2,ios::binary);
